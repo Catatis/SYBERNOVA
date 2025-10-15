@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Render all Elements Normally -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="/css/all.min.css">
+    <!-- Main file of Css style -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Title Icon -->
+    <link rel="icon" href="/img/logo.jpg">
+    <title>SYBERMOVE</title>
+</head>
+
+<body class="contact-page">
+    <!-- Start Header  -->
+    <div id="toast" class="toast"></div>
+    <div class="header">
+        <div class="container">
+            <a href="/home.html" class="logo">
+                <img src="/img/logo.jpg" alt="">
+                <h1>ybernova</h1>
+            </a>
+            <div class="links">
+                <i class="fas fa-bars"></i>
+                <ul>
+                    <li><a href="/home.html">Home</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/video.html">Video</a></li>
+                    <li><a href="/market.html">Market</a></li>
+                    <li><a href="/contact.html" class="active">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End Header  -->
+    <!-- Start Contact -->
+<div class="contact">
+    <div class="overlay"></div>
+            <div class="main-header other">
+                <h2><span>c</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span> <span>u</span><span>s</span>
+                </h2>
+                <p><span>If you have curiosity</p>
+            </div>
+    <div class="content">
+            <form id="contact-form">
+            <label for="">Name</label>
+            <input type="text" name="user_name" placeholder="Your Name" required>
+            <label for="">Email</label>
+            <input type="email" name="user_email" placeholder="Your Email" required>
+            <label for="">Message</label>
+            <textarea name="message" placeholder="Your Message" required style="resize: none;"></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <div class="empty-space"></div>
+        <div class="or">Or</div>
+        <div class="info">
+            <div class="tip"><i class="fab fa-whatsapp"></i><p>+212 772-806993</p></div>
+            <div class="tip"><i class="fa-regular fa-envelope"></i><p>Sybernova.official@gmail.com</p></div>
+        </div>
+    </div>
+</div>
+    <!-- End Contact -->
+    <!-- Start Footer -->
+    <div class="footer">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="logo">
+                <img src="img/logo.jpg" alt="">
+                <h1>ybernova</h1>
+            </div>
+            <h2>Other Social Media</h2>
+            <div class="icon">
+                <a href="https://www.youtube.com/@syber_5001" class="you" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61563055722673" class="face" target="_blank"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/sybermovie/" class="insta" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://whatsapp.com/channel/0029VakXnqGFMqrOxcMknC0D" class="what" target="_blank"><i
+                        class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>© 2025 <span>sybernova</span> All Right Reserved</p>
+        </div>
+    </div>
+    <!-- End Footer -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+emailjs.init("jn7lMunrPTZy4oiJ3"); // Public Key
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  emailjs.sendForm('service_7dkqf8r', 'template_x1rfq6s', this)
+    .then(function() {
+      showToast("✅  Message sent successfully!", false);
+      document.getElementById('contact-form').reset();
+    }, function(error) {
+      console.error('EmailJS Error:', error);
+      showToast("❌  Failed to send message. Please try again.", true);
+    });
+});
+
+function showToast(message, isError) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.className = isError ? 'toast show error' : 'toast show';
+  
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000); // مدة العرض 3 ثواني
+}
+
+</script>
+    </body>
+    </html>
