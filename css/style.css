@@ -557,7 +557,6 @@ a {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  transform: translateX(-100px);
   opacity: 0;
   animation: hi 1s forwards 2.3s ease;
 }
